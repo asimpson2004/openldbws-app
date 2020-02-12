@@ -1,0 +1,3 @@
+rootProject.name = 'openldbws-webapp'
+include 'openldbws-lib'
+include 'openldbws-app'

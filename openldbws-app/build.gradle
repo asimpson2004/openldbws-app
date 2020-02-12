@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.andrewsimpson'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+dependencies {
+	implementation ('org.springframework.boot:spring-boot-starter-web-services') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+	implementation 'org.springframework.ws:spring-ws-core'
+
+    compile project(':openldbws-lib')
+
+	implementation 'org.apache.cxf:cxf-rt-frontend-jaxws:3.3.4'
+	implementation 'org.apache.cxf:cxf-rt-features-logging:3.3.4'
+	implementation 'org.apache.cxf:cxf-rt-transports-http:3.3.4'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+
+
