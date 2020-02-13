@@ -1,4 +1,4 @@
-package com.andrewsimpson.openldbws.dto;
+package com.andrewsimpson.openldbws.dto.request;
 
 import java.util.List;
 

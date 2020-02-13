@@ -1,6 +1,9 @@
 package com.andrewsimpson.openldbws.services;
 
-import com.andrewsimpson.openldbws.dto.*;
+import com.andrewsimpson.openldbws.dto.request.GetBoardRequest;
+import com.andrewsimpson.openldbws.dto.request.GetDeparturesRequest;
+import com.andrewsimpson.openldbws.dto.request.GetServiceDetailsRequest;
+import com.andrewsimpson.openldbws.dto.response.*;
 
 
 public interface DepartureBoardService {

@@ -1,4 +1,6 @@
-package com.andrewsimpson.openldbws.dto;
+package com.andrewsimpson.openldbws.dto.response;
+
+import com.andrewsimpson.openldbws.dto.DepartureBoard;
 
 public class DeparturesBoardResponse {
 

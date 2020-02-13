@@ -1,4 +1,6 @@
-package com.andrewsimpson.openldbws.dto;
+package com.andrewsimpson.openldbws.dto.request;
+
+import com.andrewsimpson.openldbws.dto.Filter;
 
 public class GetBoardRequest {
 
