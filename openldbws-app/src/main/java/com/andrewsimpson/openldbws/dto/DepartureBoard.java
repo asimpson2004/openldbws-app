@@ -1,6 +1,5 @@
-package com.andrewsimpson.openldbws.commands;
+package com.andrewsimpson.openldbws.dto;
 
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class DepartureBoard extends StationBoardBase {

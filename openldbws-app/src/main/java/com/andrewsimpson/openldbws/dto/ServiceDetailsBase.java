@@ -1,4 +1,4 @@
-package com.andrewsimpson.openldbws.commands;
+package com.andrewsimpson.openldbws.dto;
 
 import java.util.GregorianCalendar;
 
