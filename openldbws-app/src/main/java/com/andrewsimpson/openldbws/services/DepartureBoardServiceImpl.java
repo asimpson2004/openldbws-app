@@ -1,7 +1,9 @@
 package com.andrewsimpson.openldbws.services;
 
 import com.andrewsimpson.openldbws.commands.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DepartureBoardServiceImpl implements DepartureBoardService {
     @Override
     public StationBoardResponse getDepartureBoard(GetBoardRequest getBoardRequest) {
