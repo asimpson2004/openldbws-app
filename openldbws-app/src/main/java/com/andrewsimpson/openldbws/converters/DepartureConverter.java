@@ -7,8 +7,12 @@ public class DepartureConverter {
 
     public static Departure from(final DepartureItem source) {
 
+        if(source == null)
+            return null;
+
         Departure destination = new Departure();
-        //TODO - fill in
+        destination.setCrs(source.getCrs());
+        destination.setService(ServiceConverter.from(source.getService()));
         return destination;
     }
 

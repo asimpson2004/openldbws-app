@@ -7,8 +7,13 @@ public class DepartureWithCallingPointsConverter {
 
     public static DepartureWithCallingPoints from(final DepartureItemWithCallingPoints source) {
 
+        if(source == null)
+            return null;
+
         DepartureWithCallingPoints destination = new DepartureWithCallingPoints();
-        //TODO - fill in
+        destination.setCrs(source.getCrs());
+        destination.setServiceWithCallingPoints(ServiceWithCallingPointsConverter.from(source.getService()));
+
         return destination;
     }
 

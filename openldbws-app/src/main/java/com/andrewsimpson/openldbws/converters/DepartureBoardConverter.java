@@ -9,8 +9,21 @@ public class DepartureBoardConverter {
 
     public static DepartureBoard from(final DeparturesBoard source) {
 
+        if(source == null)
+            return null;
+
         DepartureBoard destination = new DepartureBoard();
-        //TODO - fill in
+        destination.setCrs(source.getCrs());
+        destination.setFilter(FilterConverter.from(source.getFilterType()));
+        destination.setDestinations(DepartureListConverter.from(source.getDepartures()));
+        destination.setFilterCrs(source.getFiltercrs());
+        destination.setFilterLocationName(source.getFilterLocationName());
+        destination.setGeneratedAt(source.getGeneratedAt().toGregorianCalendar());
+        destination.setLocationName(source.getLocationName());
+        destination.setNrccMessages(NrccMessageListConverter.from(source.getNrccMessages()));
+        destination.setPlatformAvailable(source.isPlatformAvailable());
+        destination.setServicesAvailable(source.isAreServicesAvailable());
+
         return destination;
     }
 

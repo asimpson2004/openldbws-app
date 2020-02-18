@@ -10,15 +10,17 @@ public class GetBoardRequestConverter {
 
         GetBoardRequestParams destination = new GetBoardRequestParams();
         destination.setCrs(source.getCrs());
+        destination.setFilterCrs(source.getFilterCrs());
+        destination.setTimeOffset(source.getTimeOffset());
+        destination.setTimeWindow(source.getTimeWindow());
+
         if(null != source.getFilter()) {
             destination.setFilterType(FilterConverter.from(source.getFilter()));
         }
-        destination.setFilterCrs(source.getFilterCrs());
+
         if(null != source.getNumRows()) {
             destination.setNumRows(source.getNumRows());
         }
-        destination.setTimeOffset(source.getTimeOffset());
-        destination.setTimeWindow(source.getTimeWindow());
 
         return destination;
     }

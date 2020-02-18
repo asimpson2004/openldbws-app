@@ -9,8 +9,13 @@ public class FormationConverter {
 
     public static Formation from(final FormationData source) {
 
+        if(source == null)
+            return null;
+
         Formation destination = new Formation();
-        //TODO - fill in
+        destination.setAverageLoading(source.getAvgLoading());
+        destination.setCoaches(CoachListConverter.from(source.getCoaches()));
+
         return destination;
     }
 

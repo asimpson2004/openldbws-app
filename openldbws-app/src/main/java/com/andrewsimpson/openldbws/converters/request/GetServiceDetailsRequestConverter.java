@@ -8,7 +8,8 @@ public class GetServiceDetailsRequestConverter {
     public static GetServiceDetailsRequestParams from(final GetServiceDetailsRequest source) {
 
         GetServiceDetailsRequestParams destination = new GetServiceDetailsRequestParams();
-        //TODO - fill in
+        destination.setServiceID(source.getServiceID());
+
         return destination;
     }
 
