@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 public class ServiceDetailsBase {
 
     protected GregorianCalendar generatedAt;
-    protected Service service;
+    protected ServiceType serviceType;
     protected String locationName;
     protected String crs;
     protected String operator;
@@ -33,12 +33,12 @@ public class ServiceDetailsBase {
         this.generatedAt = generatedAt;
     }
 
-    public Service getService() {
-        return service;
+    public ServiceType getServiceType() {
+        return serviceType;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 
     public String getLocationName() {

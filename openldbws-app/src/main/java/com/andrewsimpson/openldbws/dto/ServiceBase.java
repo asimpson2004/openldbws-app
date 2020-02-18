@@ -16,7 +16,7 @@ public class ServiceBase {
     protected Boolean isCircularRoute;
     protected Boolean isCancelled;
     protected Boolean filterLocationCancelled;
-    protected Service serviceType;
+    protected ServiceType serviceType;
     protected Integer length;
     protected Boolean detachFront;
     protected Boolean isReverseFormation;
@@ -113,11 +113,11 @@ public class ServiceBase {
         this.filterLocationCancelled = filterLocationCancelled;
     }
 
-    public Service getServiceType() {
+    public ServiceType getServiceType() {
         return serviceType;
     }
 
-    public void setServiceType(Service serviceType) {
+    public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
     }
 

@@ -5,7 +5,7 @@ import java.util.List;
 public class CallingPointList {
 
     protected List<CallingPoint> callingPoints;
-    protected Service service;
+    protected ServiceType serviceType;
     protected Boolean serviceChangeRequired;
     protected Boolean assocIsCancelled;
 
@@ -17,12 +17,12 @@ public class CallingPointList {
         this.callingPoints = callingPoints;
     }
 
-    public Service getService() {
-        return service;
+    public ServiceType getServiceType() {
+        return serviceType;
     }
 
-    public void setService(Service service) {
-        this.service = service;
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 
     public Boolean getServiceChangeRequired() {
