@@ -49,4 +49,22 @@ class GetBoardRequestConverterTest {
         assertThat(result.getFilterType(), is(equalTo(FilterType.FROM)));
     }
 
+    @Test
+    void from_ShouldMapMinimumPropertiesCorrectly() {
+        // Given
+        final GetBoardRequest getBoardRequest = new GetBoardRequest();
+        getBoardRequest.setCrs(testCRS);
+        getBoardRequest.setNumRows(testNumRows);
+        // When
+        GetBoardRequestParams result = GetBoardRequestConverter.from(getBoardRequest);
+        // Then
+        assertThat(result, is(notNullValue()));
+        assertThat(result.getCrs(), is(equalTo(testCRS)));
+        assertThat(result.getNumRows(), is(equalTo(testNumRows)));
+        assertThat(result.getTimeWindow(), is(nullValue()));
+        assertThat(result.getTimeOffset(), is(nullValue()));
+        assertThat(result.getFilterCrs(), is(nullValue()));
+        assertThat(result.getFilterType(), is(nullValue()));
+    }
+
 }
