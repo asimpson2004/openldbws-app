@@ -8,6 +8,9 @@ public class GetDeparturesRequestConverter {
 
     public static GetDeparturesRequestParams from(final GetDeparturesRequest source) {
 
+        if(source == null)
+            return null;
+
         GetDeparturesRequestParams destination = new GetDeparturesRequestParams();
         destination.setCrs(source.getCrs());
         destination.setFilterList(FilterListConverter.from(source.getFilterList()));
