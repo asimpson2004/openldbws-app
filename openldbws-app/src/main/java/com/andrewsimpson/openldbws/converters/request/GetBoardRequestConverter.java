@@ -8,6 +8,9 @@ public class GetBoardRequestConverter {
 
     public static GetBoardRequestParams from(GetBoardRequest source) {
 
+        if(source == null)
+            return null;
+
         GetBoardRequestParams destination = new GetBoardRequestParams();
         destination.setCrs(source.getCrs());
         destination.setFilterCrs(source.getFilterCrs());
