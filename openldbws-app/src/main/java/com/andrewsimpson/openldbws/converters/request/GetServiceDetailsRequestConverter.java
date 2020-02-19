@@ -7,6 +7,9 @@ public class GetServiceDetailsRequestConverter {
 
     public static GetServiceDetailsRequestParams from(final GetServiceDetailsRequest source) {
 
+        if(source == null)
+            return null;
+
         GetServiceDetailsRequestParams destination = new GetServiceDetailsRequestParams();
         destination.setServiceID(source.getServiceID());
 
