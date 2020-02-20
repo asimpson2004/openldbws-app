@@ -1,8 +1,6 @@
 package com.andrewsimpson.openldbws.converters.response;
 
-import com.andrewsimpson.openldbws.dto.response.StationBoardResponse;
 import com.andrewsimpson.openldbws.dto.response.StationBoardWithDetailsResponse;
-import com.thalesgroup.rtti._2017_10_01.ldb.StationBoardResponseType;
 import com.thalesgroup.rtti._2017_10_01.ldb.StationBoardWithDetailsResponseType;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.StationBoardWithDetails;
 import org.junit.jupiter.api.Test;
