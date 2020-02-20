@@ -2,8 +2,6 @@ package com.andrewsimpson.openldbws.converters;
 
 import com.andrewsimpson.openldbws.dto.ServiceLocation;
 import com.thalesgroup.rtti._2015_11_27.ldb.types.ArrayOfServiceLocations;
-import com.thalesgroup.rtti._2017_10_01.ldb.types.ArrayOfServiceItems;
-import com.thalesgroup.rtti._2017_10_01.ldb.types.ServiceItem;
 
 import java.util.ArrayList;
 import java.util.List;

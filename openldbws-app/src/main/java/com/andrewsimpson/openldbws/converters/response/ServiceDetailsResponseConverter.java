@@ -8,6 +8,9 @@ public class ServiceDetailsResponseConverter {
 
     public static ServiceDetailsResponse from(final ServiceDetailsResponseType source) {
 
+        if(source == null)
+            return null;
+
         ServiceDetailsResponse destination = new ServiceDetailsResponse();
         destination.setServiceDetails(ServiceDetailsConverter.from(source.getGetServiceDetailsResult()));
         return destination;

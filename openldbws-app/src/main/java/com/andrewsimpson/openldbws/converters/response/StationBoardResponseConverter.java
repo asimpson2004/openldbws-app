@@ -8,6 +8,9 @@ public class StationBoardResponseConverter {
 
     public static StationBoardResponse from(final StationBoardResponseType source) {
 
+        if(source == null)
+            return null;
+
         StationBoardResponse destination = new StationBoardResponse();
         destination.setStationBoard(StationBoardConverter.from(source.getGetStationBoardResult()));
         return destination;

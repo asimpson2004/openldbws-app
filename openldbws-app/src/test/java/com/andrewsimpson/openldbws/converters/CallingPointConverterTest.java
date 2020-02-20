@@ -32,7 +32,7 @@ class CallingPointConverterTest {
     }
 
     @Test
-    void from_ShouldMapAllParametersCorrectly() {
+    void from_ShouldMapAllPropertiesCorrectly() {
 
         // Given
         final com.thalesgroup.rtti._2017_10_01.ldb.types.CallingPoint callingPoint = new com.thalesgroup.rtti._2017_10_01.ldb.types.CallingPoint();

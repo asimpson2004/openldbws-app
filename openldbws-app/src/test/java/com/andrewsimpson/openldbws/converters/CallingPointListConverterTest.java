@@ -30,7 +30,7 @@ class CallingPointListConverterTest {
     }
 
     @Test
-    void from_ShouldMapAllParametersCorrectly() {
+    void from_ShouldMapAllPropertiesCorrectly() {
         // Given
         callingPoints.add(new CallingPoint());
         callingPoints.add(new CallingPoint());

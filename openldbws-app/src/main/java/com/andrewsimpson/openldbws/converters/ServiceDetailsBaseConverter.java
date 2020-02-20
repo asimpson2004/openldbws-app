@@ -25,7 +25,7 @@ public class ServiceDetailsBaseConverter {
         destination.setCrs(source.getCrs());
         destination.setDelayReason(source.getDelayReason());
         destination.setEta(source.getEta());
-        destination.setGeneratedAt(source.getGeneratedAt().toGregorianCalendar());
+        destination.setGeneratedAt(source.getGeneratedAt() != null ? source.getGeneratedAt().toGregorianCalendar() : null);
         destination.setEtd(source.getEtd());
         destination.setLength(source.getLength());
         destination.setLocationName(source.getLocationName());

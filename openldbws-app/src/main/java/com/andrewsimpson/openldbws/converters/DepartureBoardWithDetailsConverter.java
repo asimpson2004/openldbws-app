@@ -20,15 +20,17 @@ public class DepartureBoardWithDetailsConverter {
         destination.setFilter(FilterConverter.from(source.getFilterType()));
         destination.setFilterCrs(source.getFiltercrs());
         destination.setFilterLocationName(source.getFilterLocationName());
-        destination.setGeneratedAt(source.getGeneratedAt().toGregorianCalendar());
+        destination.setGeneratedAt(source.getGeneratedAt() != null ? source.getGeneratedAt().toGregorianCalendar() : null);
         destination.setLocationName(source.getLocationName());
         destination.setNrccMessages(NrccMessageListConverter.from(source.getNrccMessages()));
         destination.setPlatformAvailable(source.isPlatformAvailable());
         destination.setServicesAvailable(source.isAreServicesAvailable());
 
         List<DepartureWithCallingPoints> departureWithCallingPointsList = new ArrayList<>();
-        for(DepartureItemWithCallingPoints departureItemWithCallingPoints : source.getDepartures().getDestination()) {
-            departureWithCallingPointsList.add(DepartureWithCallingPointsConverter.from(departureItemWithCallingPoints));
+        if(source.getDepartures() != null) {
+            for (DepartureItemWithCallingPoints departureItemWithCallingPoints : source.getDepartures().getDestination()) {
+                departureWithCallingPointsList.add(DepartureWithCallingPointsConverter.from(departureItemWithCallingPoints));
+            }
         }
 
         destination.setDepartureWithCallingPoints(departureWithCallingPointsList);

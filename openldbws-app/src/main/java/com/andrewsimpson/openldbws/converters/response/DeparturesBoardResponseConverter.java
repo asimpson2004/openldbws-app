@@ -8,6 +8,9 @@ public class DeparturesBoardResponseConverter {
 
     public static DeparturesBoardResponse from(final DeparturesBoardResponseType source) {
 
+        if(source == null)
+            return null;
+
         DeparturesBoardResponse destination = new DeparturesBoardResponse();
         destination.setDepartureBoard(DepartureBoardConverter.from(source.getDeparturesBoard()));
 

@@ -26,7 +26,7 @@ class CoachListConverterTest {
     }
 
     @Test
-    void from_ShouldMapAllParametersCorrectly() {
+    void from_ShouldMapAllPropertiesCorrectly() {
         // Given
         coachData.add(new CoachData());
         coachData.add(new CoachData());

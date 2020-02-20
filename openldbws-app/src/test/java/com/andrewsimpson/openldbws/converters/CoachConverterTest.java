@@ -28,7 +28,7 @@ class CoachConverterTest {
     }
 
     @Test
-    void from_ShouldMapAllParametersCorrectly() {
+    void from_ShouldMapAllPropertiesCorrectly() {
         // Given
         toiletAvailabilityType.setStatus(ToiletStatus.IN_SERVICE);
         final CoachData coachData = new CoachData();

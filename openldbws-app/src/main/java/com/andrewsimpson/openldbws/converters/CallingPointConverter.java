@@ -2,6 +2,9 @@ package com.andrewsimpson.openldbws.converters;
 
 import com.andrewsimpson.openldbws.dto.CallingPoint;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CallingPointConverter {
 
     public static CallingPoint from(final com.thalesgroup.rtti._2017_10_01.ldb.types.CallingPoint source) {
@@ -10,7 +13,7 @@ public class CallingPointConverter {
             return null;
 
         CallingPoint destination = new CallingPoint();
-        destination.getAdhocAlerts().addAll(AdhocAlertsConverter.from(source.getAdhocAlerts()));
+        destination.setAdhocAlerts(AdhocAlertsConverter.from(source.getAdhocAlerts()));
         destination.setAt(source.getAt());
         destination.setCancelled(source.isIsCancelled());
         destination.setCrs(source.getCrs());
