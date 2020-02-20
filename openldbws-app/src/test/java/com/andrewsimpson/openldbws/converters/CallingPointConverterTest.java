@@ -5,8 +5,6 @@ import com.thalesgroup.rtti._2012_01_13.ldb.types.ArrayOfAdhocAlert;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.FormationData;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
