@@ -15,9 +15,9 @@ class DepartureListConverterTest {
     @Test
     void from_ShouldReturnNull() {
         // Given
-        final ArrayOfDepartureItems departureItem = null;
+        final ArrayOfDepartureItems arrayOfDepartureItems = null;
         // When
-        List<Departure> result = DepartureListConverter.from(departureItem);
+        List<Departure> result = DepartureListConverter.from(arrayOfDepartureItems);
         // Then
         assertThat(result, is(nullValue()));
     }
@@ -25,12 +25,12 @@ class DepartureListConverterTest {
     @Test
     void from_ShouldMapAllPropertiesCorrectly() {
         // Given
-        final ArrayOfDepartureItems departureItem = new ArrayOfDepartureItems();
-        departureItem.getDestination().add(new DepartureItem());
-        departureItem.getDestination().add(new DepartureItem());
-        departureItem.getDestination().add(new DepartureItem());
+        final ArrayOfDepartureItems arrayOfDepartureItems = new ArrayOfDepartureItems();
+        arrayOfDepartureItems.getDestination().add(new DepartureItem());
+        arrayOfDepartureItems.getDestination().add(new DepartureItem());
+        arrayOfDepartureItems.getDestination().add(new DepartureItem());
         // When
-        List<Departure> result = DepartureListConverter.from(departureItem);
+        List<Departure> result = DepartureListConverter.from(arrayOfDepartureItems);
         // Then
         assertThat(result, is(notNullValue()));
         assertThat(result.size(), is(equalTo(3)));
