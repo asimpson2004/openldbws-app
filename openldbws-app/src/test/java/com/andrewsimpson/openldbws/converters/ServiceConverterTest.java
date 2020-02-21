@@ -12,9 +12,6 @@ import static org.hamcrest.Matchers.*;
 
 class ServiceConverterTest {
 
-    @Mock
-    ServiceBaseConverter baseConverter;
-
     @Test
     void from_ShouldReturnNull() {
         // Given
