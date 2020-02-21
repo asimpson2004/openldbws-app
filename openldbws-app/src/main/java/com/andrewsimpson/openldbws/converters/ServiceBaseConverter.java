@@ -12,7 +12,7 @@ public class ServiceBaseConverter {
 
     public static ServiceBase from(final BaseServiceItem source, ServiceBase destination) {
 
-        if(source == null)
+        if(source == null || destination == null)
             return null;
 
         destination.setAdhocAlerts(AdhocAlertsConverter.from(source.getAdhocAlerts()));
