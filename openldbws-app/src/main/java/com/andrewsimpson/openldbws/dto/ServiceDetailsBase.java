@@ -17,6 +17,7 @@ public class ServiceDetailsBase {
     protected String overdueMessage;
     protected Integer length;
     protected Boolean reverseFormation;
+    protected Boolean detachFront;
     protected String platform;
     protected String sta;
     protected String eta;
@@ -87,6 +88,14 @@ public class ServiceDetailsBase {
 
     public void setCancelled(Boolean cancelled) {
         this.cancelled = cancelled;
+    }
+
+    public Boolean getDetachFront() {
+        return detachFront;
+    }
+
+    public void setDetachFront(Boolean detachFront) {
+        this.detachFront = detachFront;
     }
 
     public String getCancelReason() {

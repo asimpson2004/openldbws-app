@@ -5,7 +5,6 @@ import com.thalesgroup.rtti._2015_11_27.ldb.types.ArrayOfServiceLocations;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.FormationData;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.ServiceItem;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;

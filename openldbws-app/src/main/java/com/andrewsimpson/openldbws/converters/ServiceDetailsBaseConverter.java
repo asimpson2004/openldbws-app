@@ -29,6 +29,7 @@ public class ServiceDetailsBaseConverter {
         destination.setEtd(source.getEtd());
         destination.setLength(source.getLength());
         destination.setLocationName(source.getLocationName());
+        destination.setDetachFront(source.isDetachFront());
         destination.setOperator(source.getOperator());
         destination.setOperatorCode(source.getOperatorCode());
         destination.setOverdueMessage(source.getOverdueMessage());
