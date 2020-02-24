@@ -15,7 +15,7 @@ public class ServiceDetailsBaseConverter {
     }
     public static ServiceDetailsBase from(final BaseServiceDetails source, ServiceDetailsBase destination) {
 
-        if(source == null)
+        if(source == null || destination == null)
             return null;
 
         destination.setAta(source.getAta());

@@ -18,7 +18,7 @@ public class StationBoardBaseConverter {
 
     public static StationBoardBase from(final BaseStationBoard source, StationBoardBase destination) {
 
-        if(source == null)
+        if(source == null || destination == null)
             return null;
 
         destination.setCrs(source.getCrs());

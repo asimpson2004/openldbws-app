@@ -29,14 +29,41 @@ class StationBoardBaseConverterTest {
         // Given
         final BaseStationBoard baseStationBoard = null;
         // When
-        StationBoardBase result = StationBoardBaseConverter.from(baseStationBoard);
+        StationBoardBase result1 = StationBoardBaseConverter.from(baseStationBoard);
+        StationBoardBase result2 = null;
+        StationBoardBaseConverter.from(baseStationBoard, result2);
         // Then
-        assertThat(result, is(nullValue()));
+        assertThat(result1, is(nullValue()));
+        assertThat(result2, is(nullValue()));
     }
 
     @Test
     void from_ShouldMapAllPropertiesCorrectly() {
         // Given
+        final BaseStationBoard baseStationBoard = getBaseStationBoard();
+        // When
+        StationBoardBase result1 = StationBoardBaseConverter.from(baseStationBoard);
+        StationBoardBase result2 = new StationBoardBase();
+        StationBoardBaseConverter.from(baseStationBoard, result2);
+        // Then
+        checkResultIsValid(result1);
+        checkResultIsValid(result2);
+    }
+
+    private void checkResultIsValid(StationBoardBase result) {
+        assertThat(result, is(notNullValue()));
+        assertThat(result.getCrs(), is(equalTo(crs)));
+        assertThat(result.getFilter(), is(equalTo(Filter.FROM)));
+        assertThat(result.getFilterCrs(), is(equalTo(filterCrs)));
+        assertThat(result.getFilterLocationName(), is(equalTo(filterLocationName)));
+        assertThat(result.getGeneratedAt(), is(notNullValue()));
+        assertThat(result.getLocationName(), is(equalTo(locationName)));
+        assertThat(result.getNrccMessages(), is(notNullValue()));
+        assertThat(result.getPlatformAvailable(), is(equalTo(platformAvailable)));
+        assertThat(result.getServicesAvailable(), is(equalTo(areServicesAvailable)));
+    }
+
+    private BaseStationBoard getBaseStationBoard() {
         final BaseStationBoard baseStationBoard = new BaseStationBoard();
         baseStationBoard.setAreServicesAvailable(areServicesAvailable);
         baseStationBoard.setCrs(crs);
@@ -50,19 +77,7 @@ class StationBoardBaseConverterTest {
         baseStationBoard.setLocationName(locationName);
         baseStationBoard.setNrccMessages(new ArrayOfNRCCMessages());
         baseStationBoard.setPlatformAvailable(platformAvailable);
-        // When
-        StationBoardBase result = StationBoardBaseConverter.from(baseStationBoard);
-        // Then
-        assertThat(result, is(notNullValue()));
-        assertThat(result.getCrs(), is(equalTo(crs)));
-        assertThat(result.getFilter(), is(equalTo(Filter.FROM)));
-        assertThat(result.getFilterCrs(), is(equalTo(filterCrs)));
-        assertThat(result.getFilterLocationName(), is(equalTo(filterLocationName)));
-        assertThat(result.getGeneratedAt(), is(notNullValue()));
-        assertThat(result.getLocationName(), is(equalTo(locationName)));
-        assertThat(result.getNrccMessages(), is(notNullValue()));
-        assertThat(result.getPlatformAvailable(), is(equalTo(platformAvailable)));
-        assertThat(result.getServicesAvailable(), is(equalTo(areServicesAvailable)));
+        return baseStationBoard;
     }
 
 }

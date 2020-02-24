@@ -41,9 +41,12 @@ class ServiceDetailsBaseConverterTest {
         // Given
         final BaseServiceDetails baseServiceDetails = null;
         // When
-        ServiceDetailsBase result = ServiceDetailsBaseConverter.from(baseServiceDetails);
+        ServiceDetailsBase result1 = ServiceDetailsBaseConverter.from(baseServiceDetails);
+        ServiceDetailsBase result2 = null;
+        ServiceDetailsBaseConverter.from(baseServiceDetails, result2);
         // Then
-        assertThat(result, is(nullValue()));
+        assertThat(result1, is(nullValue()));
+        assertThat(result2, is(nullValue()));
     }
 
     @Test
