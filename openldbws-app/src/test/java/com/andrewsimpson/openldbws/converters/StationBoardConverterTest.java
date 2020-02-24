@@ -1,14 +1,11 @@
 package com.andrewsimpson.openldbws.converters;
 
-import com.andrewsimpson.openldbws.dto.StationBoardBase;
-import com.thalesgroup.rtti._2015_11_27.ldb.types.BaseStationBoard;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.ArrayOfServiceItems;
 import com.thalesgroup.rtti._2017_10_01.ldb.types.StationBoard;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class StationBoardConverterTest {
 
