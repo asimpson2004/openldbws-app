@@ -22,7 +22,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":0, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,7 +61,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":10, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -100,7 +100,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":0, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,7 +139,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":0, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -178,7 +178,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":0, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -217,7 +217,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \"crs\":\"RNH\", \"numRows\":null, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
+					"raw": "{ \"crs\":\"RNH\", \"numRows\":0, \"filterCrs\":null, \"filter\":null, \"timeOffset\":null, \"timeWindow\":null }",
 					"options": {
 						"raw": {
 							"language": "json"
