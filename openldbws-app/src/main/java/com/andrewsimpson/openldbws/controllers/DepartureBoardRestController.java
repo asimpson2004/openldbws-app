@@ -1,11 +1,15 @@
 package com.andrewsimpson.openldbws.controllers;
 
+import com.andrewsimpson.openldbws.constraints.groups.*;
 import com.andrewsimpson.openldbws.dto.request.GetBoardRequest;
 import com.andrewsimpson.openldbws.dto.request.GetDeparturesRequest;
 import com.andrewsimpson.openldbws.dto.request.GetServiceDetailsRequest;
-import com.andrewsimpson.openldbws.dto.response.*;
 import com.andrewsimpson.openldbws.services.DepartureBoardService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,67 +24,101 @@ public class DepartureBoardRestController {
 
     @GetMapping(value = "/departureBoard", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardResponse getDepartureBoard(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getDepartureBoard(getBoardRequest);
+    public ResponseEntity getDepartureBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getDepartureBoard(getBoardRequest));
     }
 
     @GetMapping(value = "/departureBoardWithDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardWithDetailsResponse getDepartureBoardWithDetails(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getDepartureBoardWithDetails(getBoardRequest);
+    public ResponseEntity getDepartureBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getDepartureBoardWithDetails(getBoardRequest));
     }
 
     @GetMapping(value = "/arrivalBoard", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardResponse getArrivalBoard(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getArrivalBoard(getBoardRequest);
+    public ResponseEntity getArrivalBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getArrivalBoard(getBoardRequest));
     }
 
     @GetMapping(value = "/arrivalBoardWithDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardWithDetailsResponse getArrivalBoardWithDetails(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getArrivalBoardWithDetails(getBoardRequest);
+    public ResponseEntity getArrivalBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getArrivalBoardWithDetails(getBoardRequest));
     }
 
     @GetMapping(value = "/arrivalDepartureBoard", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardResponse getArrivalDepartureBoard(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getArrivalDepartureBoard(getBoardRequest);
+    public ResponseEntity getArrivalDepartureBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getArrivalDepartureBoard(getBoardRequest));
     }
 
     @GetMapping(value = "/arrivalDepartureBoardWithDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public StationBoardWithDetailsResponse getArrivalDepartureBoardWithDetails(@RequestBody GetBoardRequest getBoardRequest) {
-        return departureBoardService.getArrivalDepartureBoardWithDetails(getBoardRequest);
+    public ResponseEntity getArrivalDepartureBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getArrivalDepartureBoardWithDetails(getBoardRequest));
     }
 
     @GetMapping(value = "/fastestDepartures", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public DeparturesBoardResponse getFastestDepartures(@RequestBody GetDeparturesRequest getDeparturesRequest) {
-        return departureBoardService.getFastestDepartures(getDeparturesRequest);
+    public ResponseEntity getFastestDepartures(@Validated(FastestDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getFastestDepartures(getDeparturesRequest));
     }
 
     @GetMapping(value = "/fastestDeparturesWithDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public DeparturesBoardWithDetailsResponse getFastestDeparturesWithDetails(@RequestBody GetDeparturesRequest getDeparturesRequest) {
-        return departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest);
+    public ResponseEntity getFastestDeparturesWithDetails(@Validated(DetailedDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest));
     }
 
     @GetMapping(value = "/nextDepartures", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public DeparturesBoardResponse getNextDepartures(@RequestBody GetDeparturesRequest getDeparturesRequest) {
-        return departureBoardService.getNextDepartures(getDeparturesRequest);
+    public ResponseEntity getNextDepartures(@Validated(DeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getNextDepartures(getDeparturesRequest));
     }
 
     @GetMapping(value = "/nextDeparturesWithDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public DeparturesBoardWithDetailsResponse getNextDeparturesWithDetails(@RequestBody GetDeparturesRequest getDeparturesRequest) {
-        return departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest);
+    public ResponseEntity getNextDeparturesWithDetails(@Validated(DetailedDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest));
     }
 
     @GetMapping(value = "/serviceDetails", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ServiceDetailsResponse getServiceDetails(@RequestBody GetServiceDetailsRequest getServiceDetailsRequest) {
-        return departureBoardService.getServiceDetails(getServiceDetailsRequest);
+    public ResponseEntity getServiceDetails(@Validated @RequestBody GetServiceDetailsRequest getServiceDetailsRequest, Errors errors) {
+        if (errors.hasErrors())
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+
+        return ResponseEntity.ok().body(departureBoardService.getServiceDetails(getServiceDetailsRequest));
     }
+
 }
