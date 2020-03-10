@@ -195,6 +195,7 @@ class DepartureBoardRestControllerTest {
                 .andExpect(content().json(asJsonString(stationBoardResponse)));
     }
 
+    /*
     @Test
     void getDepartureBoardWithDetails_ShouldReturnBadRequest() {
         // Given
@@ -394,6 +395,8 @@ class DepartureBoardRestControllerTest {
         // Then
 
     }
+
+    */
 
     private ResultActions mvcPerformWithJson(final String uri, final String json) throws Exception  {
         return this.mvc.perform(get(uri)
