@@ -109,7 +109,7 @@ public class DepartureBoardRestController {
         if (errors.hasErrors())
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
 
-        return ResponseEntity.ok().body(departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest));
+        return ResponseEntity.ok().body(departureBoardService.getNextDeparturesWithDetails(getDeparturesRequest));
     }
 
     @GetMapping(value = "/serviceDetails", produces = MediaType.APPLICATION_JSON_VALUE)
