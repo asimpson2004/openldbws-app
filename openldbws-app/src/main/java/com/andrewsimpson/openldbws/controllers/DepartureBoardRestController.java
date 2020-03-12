@@ -5,6 +5,7 @@ import com.andrewsimpson.openldbws.dto.request.GetBoardRequest;
 import com.andrewsimpson.openldbws.dto.request.GetDeparturesRequest;
 import com.andrewsimpson.openldbws.dto.request.GetServiceDetailsRequest;
 import com.andrewsimpson.openldbws.services.DepartureBoardService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getDepartureBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getDepartureBoard(getBoardRequest));
     }
@@ -35,7 +36,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getDepartureBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getDepartureBoardWithDetails(getBoardRequest));
     }
@@ -44,7 +45,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getArrivalBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getArrivalBoard(getBoardRequest));
     }
@@ -53,7 +54,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getArrivalBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getArrivalBoardWithDetails(getBoardRequest));
     }
@@ -62,7 +63,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getArrivalDepartureBoard(@Validated(BoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getArrivalDepartureBoard(getBoardRequest));
     }
@@ -71,7 +72,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getArrivalDepartureBoardWithDetails(@Validated(DetailedBoardRequestGroup.class) @RequestBody GetBoardRequest getBoardRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getArrivalDepartureBoardWithDetails(getBoardRequest));
     }
@@ -80,7 +81,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getFastestDepartures(@Validated(FastestDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getFastestDepartures(getDeparturesRequest));
     }
@@ -89,7 +90,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getFastestDeparturesWithDetails(@Validated(DetailedDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getFastestDeparturesWithDetails(getDeparturesRequest));
     }
@@ -98,7 +99,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getNextDepartures(@Validated(DeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getNextDepartures(getDeparturesRequest));
     }
@@ -107,7 +108,7 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getNextDeparturesWithDetails(@Validated(DetailedDeparturesRequestGroup.class) @RequestBody GetDeparturesRequest getDeparturesRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getNextDeparturesWithDetails(getDeparturesRequest));
     }
@@ -116,9 +117,16 @@ public class DepartureBoardRestController {
     @ResponseBody
     public ResponseEntity getServiceDetails(@Validated @RequestBody GetServiceDetailsRequest getServiceDetailsRequest, Errors errors) {
         if (errors.hasErrors())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorsToJsonString(errors.getAllErrors()));
 
         return ResponseEntity.ok().body(departureBoardService.getServiceDetails(getServiceDetailsRequest));
     }
 
+    private String errorsToJsonString(Object object) {
+        try {
+            return new ObjectMapper().writeValueAsString(object);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
