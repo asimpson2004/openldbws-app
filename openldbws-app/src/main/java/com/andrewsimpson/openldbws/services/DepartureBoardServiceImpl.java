@@ -5,15 +5,12 @@ import com.andrewsimpson.openldbws.converters.request.GetBoardRequestConverter;
 import com.andrewsimpson.openldbws.converters.request.GetDeparturesRequestConverter;
 import com.andrewsimpson.openldbws.converters.request.GetServiceDetailsRequestConverter;
 import com.andrewsimpson.openldbws.converters.response.*;
-import com.andrewsimpson.openldbws.dto.StationBoardWithDetails;
 import com.andrewsimpson.openldbws.dto.request.GetBoardRequest;
 import com.andrewsimpson.openldbws.dto.request.GetDeparturesRequest;
 import com.andrewsimpson.openldbws.dto.request.GetServiceDetailsRequest;
 import com.andrewsimpson.openldbws.dto.response.*;
-import com.andrewsimpson.openldbws.exceptions.ConfigurationException;
 import com.thalesgroup.rtti._2013_11_28.token.types.AccessToken;
 import com.thalesgroup.rtti._2017_10_01.ldb.*;
-import com.thalesgroup.rtti._2017_10_01.ldb.types.ServiceItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +20,6 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
-
-import java.util.List;
 
 @Service
 public class DepartureBoardServiceImpl implements DepartureBoardService {
