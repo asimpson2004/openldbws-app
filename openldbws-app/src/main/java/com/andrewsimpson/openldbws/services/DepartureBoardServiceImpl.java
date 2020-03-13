@@ -106,7 +106,7 @@ public class DepartureBoardServiceImpl implements DepartureBoardService {
 
         GetBoardRequestParams params = GetBoardRequestConverter.from(getBoardRequest);
 
-        StationBoardResponseType stationBoardResponseType = ldbSoapService.getArrivalBoard(params, accessToken);
+        StationBoardResponseType stationBoardResponseType = ldbSoapService.getArrivalDepartureBoard(params, accessToken);
 
         StationBoardResponse response = StationBoardResponseConverter.from(stationBoardResponseType);
 
@@ -197,7 +197,7 @@ public class DepartureBoardServiceImpl implements DepartureBoardService {
         return response;
     }
 
-    private AccessToken getAccessToken(String token) {
+    protected AccessToken getAccessToken(String token) {
         if (token.isEmpty()) {
             //throw new ConfigurationException("Please the OpenLDBWS token");
         }
