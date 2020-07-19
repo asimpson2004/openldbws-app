@@ -50,11 +50,16 @@ public class DepartureBoardServiceImpl implements DepartureBoardService {
 
         GetBoardRequestParams params = GetBoardRequestConverter.from(getBoardRequest);
 
-        StationBoardResponseType departureBoard = ldbSoapService.getDepartureBoard(params, accessToken);
+        try {
+            StationBoardResponseType departureBoard = ldbSoapService.getDepartureBoard(params, accessToken);
 
-        StationBoardResponse response = StationBoardResponseConverter.from(departureBoard);
+            StationBoardResponse response = StationBoardResponseConverter.from(departureBoard);
 
-        return response;
+            return response;
+        } catch (Exception ex) {
+        }
+
+        return new StationBoardResponse();
     }
 
     @Override
